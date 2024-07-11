@@ -15,14 +15,15 @@ const Navbar = () => {
                <div>
                  <img src={logo} alt="logo" className="w-28"/>
                </div>
-               <div className="flex gap-7 text-sm font-light">
-                    <h1 className="flex gap-3 items-center"><IoLogoWhatsapp className="text-lg" /> +880 1846937397</h1>
-                    <h1 className="flex gap-3 items-center"><MdEmail  className="text-lg"/>  jutecraftify@gmail.com </h1>
+               <div className="flex flex-col  md:flex-row gap-4 md:gap-7 text-sm font-light">
+                    <h1 className="flex gap-3 items-center"><IoLogoWhatsapp className="text-lg" /> +880 1871 733 305                    </h1>
+                    <h1 className="flex gap-3 items-center"><MdEmail  className="text-lg"/>  info@stylistwigs.com
+                    </h1>
                </div>
             </div>
             {/* 3nd navbar */}
             <div className='bg-white w-full'>
-                <ul className='text-[#2A0134] font-medium text-lg py-2 flex justify-center gap-16'>
+                <ul className='text-[#2A0134] font-medium text-lg py-2 flex justify-center gap-4 md:gap-16'>
                     <Link to="/" className="hover:underline">Home</Link>
                     <Link to="/" className="hover:underline">Wigs</Link>
                     <Link to="/" className="hover:underline">Profile</Link>
