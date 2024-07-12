@@ -16,7 +16,7 @@ const Navbar = () => {
                  <img src={logo} alt="logo" className="w-28"/>
                </div>
                <div className="flex flex-col  md:flex-row gap-4 md:gap-7 text-sm font-light">
-                    <h1 className="flex gap-3 items-center"><IoLogoWhatsapp className="text-lg" /> +880 1871 733 305                    </h1>
+                    <h1 className="flex gap-3 items-center"><IoLogoWhatsapp className="text-lg" /> +880 1871 733 305</h1>
                     <h1 className="flex gap-3 items-center"><MdEmail  className="text-lg"/>  info@stylistwigs.com
                     </h1>
                </div>
@@ -25,9 +25,18 @@ const Navbar = () => {
             <div className='bg-white w-full'>
                 <ul className='text-[#2A0134] font-medium text-lg py-2 flex justify-center gap-4 md:gap-16'>
                     <Link to="/" className="hover:underline">Home</Link>
-                    <Link to="/" className="hover:underline">Wigs</Link>
+                    <details className="dropdown">
+                    <summary className="">
+                        <Link to={`/wigs`} className="hover:underline">Wigs</Link>
+                    </summary>
+                    <ul className="menu dropdown-content bg-base-100 rounded z-[1] w-52 p-2 shadow">
+                        <Link to="/subwigs/long" className="hover:underline">Long</Link>
+                        <Link to="/subwigs/medium" className="hover:underline">Medium</Link>
+                        <Link to="/subwigs/short" className="hover:underline">Short</Link>
+                    </ul>
+                    </details>
                     <Link to="/" className="hover:underline">Profile</Link>
-                    <Link to="/" className="hover:underline">Privacy & Policy</Link>
+                    <Link to="/policy" className="hover:underline">Privacy & Policy</Link>
                     <Link to="/" className="hover:underline">Contact</Link>
                 </ul>
             </div>

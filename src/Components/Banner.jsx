@@ -34,23 +34,6 @@ import b6 from '../Images/Styles/b6.png';
 import b7 from '../Images/Styles/b7.png';
 import b8 from '../Images/Styles/b8.png';
 
-import lw1 from '../Images/Styles/lw1.png';
-import lw2 from '../Images/Styles/lw2.png';
-import lw3 from '../Images/Styles/lw3.png';
-import lw4 from '../Images/Styles/lw4.png';
-import lw5 from '../Images/Styles/lw5.png';
-import lw6 from '../Images/Styles/lw6.png';
-import lw7 from '../Images/Styles/lw7.png';
-import lw8 from '../Images/Styles/lw8.png';
-
-import w1 from '../Images/Styles/w1.png';
-import w2 from '../Images/Styles/w2.png';
-import w3 from '../Images/Styles/w3.png';
-import w4 from '../Images/Styles/w4.png';
-import w5 from '../Images/Styles/w5.png';
-import w6 from '../Images/Styles/w6.png';
-import w7 from '../Images/Styles/w7.png';
-import w8 from '../Images/Styles/w8.png';
 
 
 import br1 from '../Images/Styles/br1.png';
@@ -75,6 +58,7 @@ import p9 from '../Images/People/p9.png';
 import p10 from '../Images/People/p10.png';
 
 const Banner = () => {
+    // slideshow
     const [currentSlide, setCurrentSlide] = useState(1);
     const totalSlides = 3;
 
@@ -85,6 +69,39 @@ const Banner = () => {
 
         return () => clearInterval(interval); 
     }, [totalSlides]);
+
+    // fetch wigs data
+    const [wigs, setWigs] = useState([])
+    useEffect(() =>{
+            fetch('wigs.json')
+            .then(res => res.json())
+            .then(data => {
+                const WigsData = data.filter(wig => wig.category === "wigs");
+                setWigs(WigsData);
+            });
+    }, [setWigs]);
+
+    // fetch lace wigs
+    const [lacewigs, setLacewigs] = useState([])
+    useEffect(() => {
+        fetch('wigs.json')
+            .then(res => res.json())
+            .then(data => {
+                const laceWigsData = data.filter(wig => wig.category === "lacewigs");
+                setLacewigs(laceWigsData);
+            });
+    }, [setLacewigs]);
+
+    const chunkArray = (array, size) => {
+        const chunkedArray = [];
+        for (let i = 0; i < array.length; i += size) {
+          chunkedArray.push(array.slice(i, i + size));
+        }
+        return chunkedArray;
+      };
+    
+      const wigsGroups = chunkArray(wigs, 4);
+      const lacewigsGroups = chunkArray(lacewigs, 4);
 
     return (
         <div>
@@ -545,180 +562,36 @@ const Banner = () => {
                 showThumbs={false}
                 className='w-full'
                 >
-                    {/* 1st slide */}
-                    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-2'>
-                        {/* Card 1 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw1} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
+                    {
+                        lacewigsGroups.map((group, index) => (
+                            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-2'>
+                                {
+                                    group.map((wigs, idx) => (
+                                        <Link to={`/wigs/${wigs.id}`} className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
+                                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
+                                                <img src={wigs.main_image} alt="Card" className="h-full w-full object-cover" />
+                                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
+                                            </div>
+                                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
+                                            <h3 className="text-base text-center text-[#2A0134] font-semibold mb-2">{wigs.name}</h3>
+                                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
+                                                <div className='flex justify-between w-full items-center'>
+                                                    <div className='flex justify-evenly gap-1'>
+                                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
+                                                    </div>
+                                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> ${wigs.price}</h3>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    ))
+                                }
                             </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Kim Kimble Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 2 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw2} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Kim Kimble Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 3 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw3} alt="Card" className="h-full w-full object-cover object-top" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Sakura Long Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 4 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw4} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Stevie Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* 2nd slide */}
-                    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-2'>
-                        {/* Card 5 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw5} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Scene Stealer Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 6 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw6} alt="Card" className="h-full w-full object-cover object-top" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Oink Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 7 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw7} alt="Card" className="h-full w-full object-cover object-top" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Red Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 8 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={lw8} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Fizzy Blone Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </Carousel>
                 </div>
           </section>
@@ -735,183 +608,39 @@ const Banner = () => {
                 showThumbs={false}
                 className='w-full'
                 >
-                    {/* 1st slide */}
-                    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-2'>
-                        {/* Card 1 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w1} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
+                    {
+                        wigsGroups.map((group, index) => (
+                            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-2'>
+                                {
+                                    group.map((wigs, idx) => (
+                                        <Link to={`/wigs/${wigs.id}`} className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
+                                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
+                                                <img src={wigs.main_image} alt="Card" className="h-full w-full object-cover" />
+                                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
+                                            </div>
+                                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
+                                            <h3 className="text-base text-center text-[#2A0134] font-semibold mb-2">{wigs.name}</h3>
+                                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
+                                                <div className='flex justify-between w-full items-center'>
+                                                    <div className='flex justify-evenly gap-1'>
+                                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
+                                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
+                                                    </div>
+                                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> ${wigs.price}</h3>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    ))
+                                }
                             </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Cara Petite Deluex Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 2 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w2} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Alexis Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 3 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w3} alt="Card" className="h-full w-full object-cover object-top" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Pansy  Wig</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 4 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w4} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Extreme Roma Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* 2nd slide */}
-                    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-2'>
-                        {/* Card 5 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w5} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Sympathy Mono Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 6 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w6} alt="Card" className="h-full w-full object-cover object-top" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Tempo Large Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 7 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w7} alt="Card" className="h-full w-full object-cover object-top" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Chery Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 8 */}
-                        <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
-                            <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                                <img src={w8} alt="Card" className="h-full w-full object-cover" />
-                                <h1 className='absolute top-4 left-4 text-xs font-medium text-white bg-[#2A0134] py-2 px-3 rounded'>NEW</h1>
-                            </div>
-                            <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                                <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Seven Mono Part Wigs</h3>
-                                <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
-                                <div className='flex justify-between w-full items-center'>
-                                    <div className='flex justify-evenly gap-1'>
-                                        <div className='h-5 w-5 rounded bg-[#000000] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#4B3621] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#FAF0BE] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#B44C43] transform transition-transform duration-300 hover:scale-125'></div>
-                                        <div className='h-5 w-5 rounded bg-[#C0C0C0] transform transition-transform duration-300 hover:scale-125'></div>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-[#2A0134] mb-2"><strike className="text-sm text-zinc-600">$120</strike> $100</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </Carousel>
                 </div>
-          </section>
+          </section> 
           {/*Braids */}
           <section className='mt-24 px-6 md:px-14 lg:px-28'>
                 <div className='text-center text-4xl font-medium pb-14 text-[#2A0134]'>

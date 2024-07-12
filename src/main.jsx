@@ -9,6 +9,10 @@ import {
 } from "react-router-dom"; 
 import Home from './Components/Home.jsx';
 import Root from './Root.jsx';
+import Policy from './Components/Policy.jsx';
+import Details from './Components/Details.jsx';
+import Products from './Components/Products.jsx';
+import SubProducts from './Components/SubProducts.jsx';
  
  
 const router = createBrowserRouter([ 
@@ -19,6 +23,24 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+  },
+  {
+    path: "/policy",
+    element: <Policy></Policy>,
+  },
+  {
+    path: '/wigs/:id',
+    element: <Details></Details>,
+    loader : () => fetch('/wigs.json'),
+  },
+  {
+    path: '/wigs',
+    element: <Products></Products>
+  },
+  {
+    path: '/subwigs/:category',
+    element: <SubProducts></SubProducts>,
+    loader : () => fetch('/wigs.json'),
   },
 ] 
  }, 
