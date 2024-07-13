@@ -25,15 +25,15 @@ import s7 from '../Images/Styles/s7.png';
 import s8 from '../Images/Styles/s8.png';
 import s9 from '../Images/Styles/s9.png';
 
-import b1 from '../Images/Styles/b1.png';
-import b2 from '../Images/Styles/b2.png';
-import b3 from '../Images/Styles/b3.png';
-import b4 from '../Images/Styles/b4.png';
-import b5 from '../Images/Styles/b5.png';
-import b6 from '../Images/Styles/b6.png';
-import b7 from '../Images/Styles/b7.png';
-import b8 from '../Images/Styles/b8.png';
 
+import hp1 from '../Images/Styles/hp1.png';
+import hp2 from '../Images/Styles/hp2.png';
+import hp3 from '../Images/Styles/hp3.png';
+import hp4 from '../Images/Styles/hp4.png';
+import hp5 from '../Images/Styles/hp5.png';
+import hp6 from '../Images/Styles/hp6.png';
+import hp7 from '../Images/Styles/hp7.png';
+import hp8 from '../Images/Styles/hp8.png';
 
 
 import br1 from '../Images/Styles/br1.png';
@@ -361,11 +361,11 @@ const Banner = () => {
                 {/* Card 1 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b1} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp1} alt="Card" className="h-full w-full object-cover" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                        <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Beachey Waves</h3>
+                        <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Stright Cut</h3>
                         <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
                         <div className='flex justify-between w-full items-center'>
                             <div className='flex justify-evenly gap-1'>
@@ -382,7 +382,7 @@ const Banner = () => {
                 {/* Card 2 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b2} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp2} alt="Card" className="h-full w-full object-cover" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
@@ -403,7 +403,7 @@ const Banner = () => {
                 {/* Card 3 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b3} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp3} alt="Card" className="h-full w-full object-cover object-top" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
@@ -424,7 +424,7 @@ const Banner = () => {
                 {/* Card 4 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b4} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp4} alt="Card" className="h-full w-full object-cover" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
@@ -445,7 +445,7 @@ const Banner = () => {
                 {/* Card 5 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b5} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp5} alt="Card" className="h-full w-full object-cover" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
@@ -466,7 +466,7 @@ const Banner = () => {
                 {/* Card 6 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b6} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp6} alt="Card" className="h-full w-full object-cover object-top" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
@@ -487,11 +487,11 @@ const Banner = () => {
                 {/* Card 7 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b7} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp7} alt="Card" className="h-full w-full object-cover object-center" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">
-                        <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Bangs</h3>
+                        <h3 className="text-2xl text-[#2A0134] font-semibold mb-2">Pony</h3>
                         <h3 className="text-lg font-semibold mb-2 flex items-center gap-3"><FaStar /><FaStar /><FaStar /><FaStar /></h3>
                         <div className='flex justify-between w-full items-center'>
                                     <div className='flex justify-evenly gap-1'>
@@ -508,7 +508,7 @@ const Banner = () => {
                 {/* Card 8 */}
                 <div className="flex flex-col items-start bg-white shadow-md rounded-lg overflow-hidden">
                     <div className="relative h-72 w-full bg-gray-200 flex items-center justify-center">
-                        <img src={b8} alt="Card" className="h-full w-full object-cover" />
+                        <img src={hp8} alt="Card" className="h-full w-full object-cover" />
                         <h1 className='absolute top-4 left-4 text-2xl font-medium'><FaHeart className='text-[#2A0134]'/></h1>
                     </div>
                     <div className="p-4 w-full flex flex-col items-center justify-center gap-2">

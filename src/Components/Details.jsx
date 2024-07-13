@@ -76,8 +76,8 @@ const Details = () => {
                     </Carousel>
                 </div>
                 {/* details */}
-                <div className="w-full md:w-1/2 bg-[#581b6719] p-10 shadow-md text-right flex flex-col gap-5">
-                    <div className="flex justify-between">
+                <div className="w-full md:w-1/2 bg-[#581b6719] p-5 md:p-10 shadow-md text-right flex flex-col gap-5">
+                    <div className="flex flex-wrap gap-4 justify-between">
                         <p className="text-lg font-semibold">For 50 - 199 pieces</p>
                         <h1 className='text-left text-4xl font-medium text-[#2A0134]'>{newWigs.price} $</h1>
                     </div>
@@ -96,7 +96,7 @@ const Details = () => {
                     </div>
 
                     <p className="text-lg font-semibold">Availabe Length</p>
-                    <div className="flex justify-evenly">
+                    <div className="flex flex-wrap gap-4 justify-evenly">
                         {
                             newWigs.length.map(length => (
                                 <button
@@ -109,7 +109,7 @@ const Details = () => {
                     </div>
                     <hr className="w-full border-2" />
                     
-                    <div className="flex justify-between">
+                    <div className="flex flex-wrap gap-4 justify-between">
                         <button className="py-2 px-6 font-medium bg-white">Contact Supplier</button>
                         <button className="py-2 px-6 font-medium bg-[#2A0134] text-white">Start Order</button>
                     </div>

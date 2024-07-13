@@ -17,7 +17,7 @@ const Footer = () => {
                     <p className='text-base font-normal flex items-center gap-2'><FaPhoneAlt />+880 1871 733 305</p>
                     <p className='text-base font-normal'>Factory Address: 329, Vadail, Uttar Para, <br /> Near Dhaka EPZ, Dhamsona, Ashulia, Savar, <br /> Dhaka, Bangladesh</p>
                     <p className='text-base font-normal '>Trade License: TRAD/DNCC/001127/2024</p>
-                    <div className='flex items-center gap-3'>
+                    <div className='flex flex-wrap items-center gap-3'>
                         <img src={facebook} className='w-12' />
                         <img src={whatsapp} className='w-12' />
                         <img src={twitter} className='w-12' />
