@@ -23,7 +23,7 @@ const Navbar = () => {
             </div>
             {/* 3nd navbar */}
             <div className='bg-white w-full'>
-                <ul className='text-[#2A0134] font-medium text-lg py-2 flex justify-center gap-4 md:gap-16'>
+                <ul className='text-[#2A0134] font-medium text-lg py-2 flex flex-wrap justify-center gap-3 md:gap-16'>
                     <Link to="/" className="hover:underline">Home</Link>
                     <details className="dropdown">
                     <summary className="">
