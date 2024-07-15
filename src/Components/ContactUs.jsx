@@ -16,7 +16,8 @@ const ContactUs = () => {
         const message = e.target.elements.message.value;
         
         // send message to whatsapp
-        const whatsappNumber = "+8801915877448"
+        const whatsappNumber = "+8801871733305" 
+
 
         var url = "https://wa.me/" + whatsappNumber + "?text="
         + "*Name :* " + username + "%0a"
