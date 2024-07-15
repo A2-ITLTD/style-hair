@@ -9,7 +9,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "150g",
+        "hair_fiber": "Brazilian Human Hair",
+        "hair_length": "Long",
+        "hair_texture": "Straight",
+        "hair_style": "Lace Front Wig",
+        "cap_size": "Average Size"
     },
     {
         "id": 2,
@@ -21,7 +27,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "medium"
+        "subcategory": "medium",
+        "product_weight": "160g",
+        "hair_fiber": "Virgin Human Hair",
+        "hair_length": "Medium",
+        "hair_texture": "Deep Wave",
+        "hair_style": "Glueless Wig",
+        "cap_size": "Average Size"
     },
     {
         "id": 3,
@@ -33,7 +45,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "280g",
+        "hair_fiber": "100% Peruvian Hair",
+        "hair_length": "14 inch",
+        "hair_texture": "Deep Wave",
+        "hair_style": "Lace Front",
+        "cap_size": "Medium"
     },
     {
         "id": 4,
@@ -45,7 +63,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "short"
+        "subcategory": "short",
+        "product_weight": "220g",
+        "hair_fiber": "100% Indian Remy Hair",
+        "hair_length": "10 inch",
+        "hair_texture": "Straight",
+        "hair_style": "Bob",
+        "cap_size": "Small"
     },
     {
         "id": 5,
@@ -57,7 +81,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "short"
+        "subcategory": "short",
+        "product_weight": "240g",
+        "hair_fiber": "100% Malaysian Hair",
+        "hair_length": "12 inch",
+        "hair_texture": "Straight",
+        "hair_style": "Short",
+        "cap_size": "Medium"
     },
     {
         "id": 6,
@@ -69,7 +99,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "medium"
+        "subcategory": "medium",
+        "product_weight": "270g",
+        "hair_fiber": "100% Brazilian Hair",
+        "hair_length": "14 inch",
+        "hair_texture": "Loose Wave",
+        "hair_style": "Lace Front",
+        "cap_size": "Medium"
     },
     {
         "id": 7,
@@ -81,7 +117,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "medium"
+        "subcategory": "medium",
+        "product_weight": "300g",
+        "hair_fiber": "100% Cambodian Hair",
+        "hair_length": "12 inch",
+        "hair_texture": "Kinky Curly",
+        "hair_style": "Full Lace",
+        "cap_size": "Large"
     },
     {
         "id": 8,
@@ -93,7 +135,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "wigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "300g",
+        "hair_fiber": "100% Cambodian Hair",
+        "hair_length": "12 inch",
+        "hair_texture": "Kinky Curly",
+        "hair_style": "Full Lace",
+        "cap_size": "Large"
     },
     {
         "id": 9,
@@ -105,7 +153,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "170g",
+        "hair_fiber": "Human Hair",
+        "hair_length": "12 inch",
+        "hair_texture": "Curly",
+        "hair_style": "Silk Top",
+        "cap_size": "Small"
     },
     {
         "id": 10,
@@ -117,7 +171,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "180g",
+        "hair_fiber": "Human Hair",
+        "hair_length": "14 inch",
+        "hair_texture": "Kinky Straight",
+        "hair_style": "Lace Front",
+        "cap_size": "Medium"
     },
     {
         "id": 11,
@@ -129,7 +189,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "short"
+        "subcategory": "short",
+        "product_weight": "140g",
+        "hair_fiber": "Synthetic Fiber",
+        "hair_length": "8 inch",
+        "hair_texture": "Fluffy",
+        "hair_style": "Bob",
+        "cap_size": "Small"
     },
     {
         "id": 12,
@@ -141,7 +207,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "short"
+        "subcategory": "short",
+        "product_weight": "120g",
+        "hair_fiber": "Synthetic Hair",
+        "hair_length": "6 inches",
+        "hair_texture": "Fluffy",
+        "hair_style": "Natural",
+        "cap_size": "Medium"
     }, 
     {
         "id": 13,
@@ -153,7 +225,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "150g",
+        "hair_fiber": "European Hair",
+        "hair_length": "16 inches",
+        "hair_texture": "Wave",
+        "hair_style": "Balayage",
+        "cap_size": "Large"
     }, 
     {
         "id": 14,
@@ -165,7 +243,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "200g",
+        "hair_fiber": "Synthetic Hair",
+        "hair_length": "38 inches",
+        "hair_texture": "Straight",
+        "hair_style": "Thick Long",
+        "cap_size": "Medium"
     }, 
     {
         "id": 15,
@@ -177,7 +261,13 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "long"
+        "subcategory": "long",
+        "product_weight": "180g",
+        "hair_fiber": "Chemical Fiber",
+        "hair_length": "Long",
+        "hair_texture": "Big Wave",
+        "hair_style": "Gradient Dyeing",
+        "cap_size": "Medium"
     },
     {
         "id": 16,
@@ -189,6 +279,12 @@
         "color": ["black", "brunette", "blonde", "redhead", "silver"],
         "length": ["8 inch", "10 inch", "12 inch", "14 inch"],
         "category": "lacewigs",
-        "subcategory": "medium"
+        "subcategory": "medium",
+        "product_weight": "160g",
+        "hair_fiber": "European Hair",
+        "hair_length": "Short",
+        "hair_texture": "Big Wave",
+        "hair_style": "Gradient Dyeing",
+        "cap_size": "Medium"
     } 
 ]

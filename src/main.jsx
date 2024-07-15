@@ -13,6 +13,7 @@ import Policy from './Components/Policy.jsx';
 import Details from './Components/Details.jsx';
 import Products from './Components/Products.jsx';
 import SubProducts from './Components/SubProducts.jsx';
+import ContactUs from './Components/ContactUs.jsx';
  
  
 const router = createBrowserRouter([ 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     path: '/subwigs/:category',
     element: <SubProducts></SubProducts>,
     loader : () => fetch('/wigs.json'),
+  },
+  {
+    path: '/contactus',
+    element: <ContactUs></ContactUs>
   },
 ] 
  }, 
