@@ -7,6 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import ReCAPTCHA from "react-google-recaptcha";
 
 // getting hair color
 import bl1 from '../Images/haircolor/bl1.png';
@@ -45,6 +46,7 @@ import g7 from '../Images/haircolor/g7.png';
 const Details = () => {
     const [loading, setLoading] = useState(true);
     const [newWigs, setNewWigs] = useState(null); 
+    const [verified, setVerified] = useState(false);
     const wigs = useLoaderData();
     const { id } = useParams();
     const intId = parseInt(id);
@@ -79,7 +81,11 @@ const Details = () => {
     
       const wigsGroups = chunkArray(wigs, 4);
 
-    
+    // recapcha 
+    function onChange(value) {
+        console.log("Captcha value:", value);
+        setVerified(true);
+      }
 
     return (
         <div className='mt-16 px-6 md:px-14 lg:px-28'>
@@ -110,7 +116,23 @@ const Details = () => {
                 {/* details */}
                 <div className="w-full md:w-1/2 bg-gray-100 p-5 md:p-10 shadow-md text-left flex flex-col gap-5">
                     <div className="flex flex-wrap gap-4 justify-between">
-                        <p className="text-lg font-semibold">Minimum Oder Piece: 100</p>
+                        <form className="flex flex-col gap-2">
+                            <label className='text-left text-sm font-medium text-[#2A0134]'>Minimum Order Quantity: 20</label>
+                            <select name="quantity" className="py-1 px-5 border-2 border-black rounded text-base text-black" required>
+                                <option value="">Select Quantity</option>
+                                <option value="20">20</option>
+                                <option value="20 - 50">20 - 50</option>
+                                <option value="50 - 100">50 - 100</option>
+                                <option value="100 - 250">100 - 250</option>
+                                <option value="250 - 500">250 - 500</option>
+                                <option value="500 - 1000">500 - 1000</option>
+                                <option value="1000 - 2500">1000 - 2500</option>
+                                <option value="2500 - 5000">2500 - 5000</option>
+                                <option value="5000 - 10000">5000 - 10000</option>
+                                <option value="10000 - 20000">10000 - 20000</option>
+                                <option value="20000+">20000+</option>
+                            </select>
+                        </form>
                         <h1 className='text-left text-4xl font-medium text-[#2A0134]'>{newWigs.price} $</h1>
                     </div>
 
@@ -133,8 +155,12 @@ const Details = () => {
                         }
                     </div>
                     <hr className="w-full border-2 mt-10" />
-                    <div className="flex flex-wrap gap-4 justify-center">
-                        <Link to="/contactus" className="py-2 px-6 text-xl font-medium bg-[#2A0134] text-white rounded">Contact Supplier</Link>
+                    <div className="flex flex-col flex-wrap gap-4 justify-center items-center">
+                        <ReCAPTCHA
+                            sitekey="6LeJCxIqAAAAAHDpkzr3Rk8HFfig7jMmXxjepUaU"
+                            onChange={onChange}
+                        />
+                        <Link to="/contactus" className="py-3 px-6 text-xl font-medium bg-[#2A0134] text-white rounded" disabled={!verified}>Contact Supplier</Link>
                     </div>
                 </div>
             </div>

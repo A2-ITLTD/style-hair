@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import bg from "../Images/bg8.jpg";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactUs = () => {
+
+    const [verified, setVerified] = useState(false);
 
     const handleOrder = e => {
         e.preventDefault();
@@ -33,6 +36,12 @@ const ContactUs = () => {
         
     
     };
+
+    // recapcha 
+    function onChange(value) {
+        console.log("Captcha value:", value);
+        setVerified(true);
+      }
 
     return (
         <div className="mt-14 md:mt-24 px-5 md:px-14 lg:px-24 flex flex-col-reverse md:flex-row gap-16 text-[#2A0134]">
@@ -77,10 +86,40 @@ const ContactUs = () => {
                     <option value="Fashion gradient dyeing big wave long hair head covering forehead lace 13 * 4 chemical fiber wig female Xuchang factory price">Fashion gradient dyeing big wave long hair head covering forehead lace 13 * 4 chemical fiber wig female Xuchang factory price</option>
                     <option value="Brown Balayage Color European Human Hair Full Monofilament Wigs Hand Tied BOB Cut 130% Density Mono Wig">Brown Balayage Color European Human Hair Full Monofilament Wigs Hand Tied BOB Cut 130% Density Mono Wig</option>
                 </select>
-                <input type="number" name="quantity" min={100} placeholder='Quantity ( min 100 )' className='py-2 px-5 border-2 border-black rounded-md text-lg text-black' />
-                <input type="number" name="samplequantity" min={50} placeholder='Sample Quantity ( min 50 )' className='py-2 px-5 border-2 border-black rounded-md text-lg text-black' />
+                <select name="quantity" className="py-2 px-5 border-2 border-black rounded-md text-lg text-black" required>
+                    <option value="">Select Quantity</option>
+                    <option value="20">20</option>
+                    <option value="20 - 50">20 - 50</option>
+                    <option value="50 - 100">50 - 100</option>
+                    <option value="100 - 250">100 - 250</option>
+                    <option value="250 - 500">250 - 500</option>
+                    <option value="500 - 1000">500 - 1000</option>
+                    <option value="1000 - 2500">1000 - 2500</option>
+                    <option value="2500 - 5000">2500 - 5000</option>
+                    <option value="5000 - 10000">5000 - 10000</option>
+                    <option value="10000 - 20000">10000 - 20000</option>
+                    <option value="20000+">20000+</option>
+                </select>
+                <select name="samplequantity" className="py-2 px-5 border-2 border-black rounded-md text-lg text-black">
+                    <option value="">Select Sample Quantity</option>
+                    <option value="20">20</option>
+                    <option value="20 - 50">20 - 50</option>
+                    <option value="100 -250 ">50 - 100</option>
+                    <option value="100 -250 ">100 - 250</option>
+                    <option value="250 - 500">250 - 500</option>
+                    <option value="500 - 1000">500 - 1000</option>
+                    <option value="1000 - 2500">1000 - 2500</option>
+                    <option value="2500 - 5000">2500 - 5000</option>
+                    <option value="5000 - 10000">5000 - 10000</option>
+                    <option value="10000 - 20000">10000 - 20000</option>
+                    <option value="20000+">20000+</option>
+                </select>
                 <textarea type="text" name="message" placeholder='Any Message or change about product ?' className='py-2 px-5 border-2 border-black rounded-md text-lg text-black textarea textarea-bordered textarea-2xl w-full'></textarea>
-                <button type="submit" value="Send" className='bg-[#2A0134] text-white font-semibold p-5 rounded-lg hover:bg-slate-700'>Send</button>
+                <ReCAPTCHA
+                    sitekey="6LeJCxIqAAAAAHDpkzr3Rk8HFfig7jMmXxjepUaU"
+                    onChange={onChange}
+                />
+                <button type="submit" value="Send" className='bg-[#2A0134] text-white font-semibold p-5 rounded-lg hover:bg-slate-700' disabled={!verified} >Send</button>
             </form>
            </div>
         </div>
