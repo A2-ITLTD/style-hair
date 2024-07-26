@@ -37,7 +37,8 @@ const Navbar = () => {
                     </details>
                     <Link to="/" className="hover:underline">Profile</Link>
                     <Link to="/policy" className="hover:underline">Privacy & Policy</Link>
-                    <Link to="/contactus" className="hover:underline">Contact</Link>
+                    <Link to="/contactus" className="hover:underline">Contact Us</Link>
+                    <Link to="/aboutus" className="hover:underline">About Us</Link>
                 </ul>
             </div>
         </div>

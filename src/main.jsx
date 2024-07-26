@@ -14,6 +14,7 @@ import Details from './Components/Details.jsx';
 import Products from './Components/Products.jsx';
 import SubProducts from './Components/SubProducts.jsx';
 import ContactUs from './Components/ContactUs.jsx';
+import AboutUs from './Components/AboutUs.jsx';
  
  
 const router = createBrowserRouter([ 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
+  },
+  {
+    path: '/aboutus',
+    element: <AboutUs></AboutUs>
   },
 ] 
  }, 
