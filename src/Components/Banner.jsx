@@ -304,7 +304,7 @@ const Banner = () => {
                 </div>
           </section>
           {/* shop by category */}
-          <section c>
+          <section className='mt-24 px-6 md:px-14 lg:px-28'>
             <div>
                 <Carousel
                 autoPlay

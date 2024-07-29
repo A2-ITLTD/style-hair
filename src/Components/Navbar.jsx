@@ -3,6 +3,7 @@ import logo from '../Images/hairlogo-removebg.png';
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { AiOutlineAlibaba } from "react-icons/ai";
 const Navbar = () => {
     return (
         <div className="w-full">
@@ -35,10 +36,24 @@ const Navbar = () => {
                         <Link to="/subwigs/short" className="hover:underline">Short</Link>
                     </ul>
                     </details>
-                    <Link to="/" className="hover:underline">Profile</Link>
+                    {/* shop */}
+                    <details className="dropdown">
+                    <summary className="">
+                        <Link to={`/wigs`} className="hover:underline">Shop</Link>
+                    </summary>
+                    <ul className="menu dropdown-content bg-base-100 rounded z-[1] w-52 p-2 shadow">
+                        <Link to="/shop/women" className="hover:underline">Women's Wig</Link>
+                        <Link to="/shop/men" className="hover:underline">Men's Wig</Link>
+                        <Link to="/shop/kids" className="hover:underline">Kid's Wig</Link>
+                    </ul>
+                    </details>
                     <Link to="/policy" className="hover:underline">Privacy & Policy</Link>
                     <Link to="/contactus" className="hover:underline">Contact Us</Link>
                     <Link to="/aboutus" className="hover:underline">About Us</Link>
+                    <Link to="/" className="hover:underline flex items-center gap-2">
+                        <AiOutlineAlibaba className='text-3xl' /> 
+                        Alibaba
+                    </Link>
                 </ul>
             </div>
         </div>

@@ -47,6 +47,7 @@ const Details = () => {
     const [loading, setLoading] = useState(true);
     const [newWigs, setNewWigs] = useState(null); 
     const [verified, setVerified] = useState(false);
+    const [suggestWigs, setSuggestWigs] = useState(null);
     const wigs = useLoaderData();
     const { id } = useParams();
     const intId = parseInt(id);
@@ -60,6 +61,10 @@ const Details = () => {
                     setNewWigs(foundwigs);
                 } else {
                     console.log(`Wig with id ${intId} not found`);
+                }
+                const filterwigs = wigs.filter(wig => wig.gender === foundwigs.gender);
+                if (filterwigs) {
+                    setSuggestWigs(filterwigs);
                 }
             }
             setLoading(false); 
@@ -79,7 +84,7 @@ const Details = () => {
         return chunkedArray;
       };
     
-      const wigsGroups = chunkArray(wigs, 4);
+      const wigsGroups = chunkArray(suggestWigs, 4);
 
     // recapcha 
     function onChange(value) {
