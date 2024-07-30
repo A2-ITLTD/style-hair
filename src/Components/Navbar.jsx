@@ -47,13 +47,8 @@ const Navbar = () => {
                         <Link to="/shop/kids" className="hover:underline">Kid's Wig</Link>
                     </ul>
                     </details>
-                    <Link to="/policy" className="hover:underline">Privacy & Policy</Link>
                     <Link to="/contactus" className="hover:underline">Contact Us</Link>
                     <Link to="/aboutus" className="hover:underline">About Us</Link>
-                    <Link to="/" className="hover:underline flex items-center gap-2">
-                        <AiOutlineAlibaba className='text-3xl' /> 
-                        Alibaba
-                    </Link>
                 </ul>
             </div>
         </div>

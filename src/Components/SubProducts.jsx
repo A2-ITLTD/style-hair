@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
 import { useLoaderData, useParams } from "react-router-dom";
+import { FaNoteSticky } from "react-icons/fa6";
 const SubProducts = () => {
     const [loading, setLoading] = useState(true);
     const [newWigs, setNewWigs] = useState([]); 
@@ -60,6 +61,10 @@ const SubProducts = () => {
                 :
                  <div>No wigs available for this category.</div>
                  }
+            </div>
+            <div className="mt-16 mx-0 md:mx-12 flex items-start justify-start gap-5">
+                <FaNoteSticky className="text-[#2A0134] h-auto w-28"/>
+                <p className='text-sm font-normal text-zinc-600 text-justify '>When you select a style hair, you are choosing a product that uses some of the most technologically advanced hair fibers. Many of our style hairs are created with heat-resistant fiber, allowing you to use a curling iron whenever you want. One of the best traits of style hair is that you rarely have to worry about styling it. We offer a fabulous selection of the best styles, so you can get on with your day with ease while looking absolutely amazing. Find exactly what you're searching for in our online catalog of the latest styles, whether it's short curly styles or long straight styles, with a wide range of color choices. You owe it to yourself to look and feel your best, and our style hair is sure to help you achieve that. Start shopping for your style hair today and fall in love with your soon-to-be new look.</p>
             </div>
         </div>
     );

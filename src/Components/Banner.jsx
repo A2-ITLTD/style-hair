@@ -4,6 +4,7 @@ import bg3 from '../Images/bg3.jpg';
 import bg4 from '../Images/b4.jpg';
 import bg6 from '../Images/b6.jpg';
 import bg7 from '../Images/b7.jpg';
+import orangebg from '../Images/orangebg.jpg';
 import '../../src/index.css';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
@@ -14,6 +15,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
+import { AiOutlineAlibaba } from "react-icons/ai";
 
 import s1 from '../Images/Styles/s1.png';
 import s2 from '../Images/Styles/s2.png';
@@ -113,8 +115,17 @@ const Banner = () => {
                 <button className='border-2 border-white py-4 w-full font-semibold text-2xl hover:bg-white hover:text-black'>Shop Now</button>
             </div>
           </section>
+          {/* alibab button */}
+          <section className="my-16 relative w-full h-32 rounded-md flex items-center justify-center">
+            <img src={orangebg} className='absolute inset-0 w-full h-full object-cover object-left md:object-center rounded-md' />
+            <div className='relative z-10'>
+                <Link to="/" className='flex gap-2 items-center bg-white hover:bg-slate-200 text-[#FF6701] text-sm md:text-2xl font-bold py-2 px-3 md:px-8 rounded-md'>
+                Get In Touch With Alibaba <AiOutlineAlibaba className='text-base md:text-5xl' />
+                </Link>
+            </div>
+          </section>
           {/* wow seller */}
-          <section className='mt-24 px-6 md:px-14 lg:px-28'>
+          <section className='mt-16 px-6 md:px-14 lg:px-28'>
                 <div className='text-center text-4xl font-medium pb-14 text-[#2A0134]'>
                     <h1>WOW SELLER</h1>
                 </div>
