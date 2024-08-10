@@ -4,6 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import facebook from '../Images/facebook.png';
 import instagram from '../Images/instagram.png';
 import youtube from '../Images/youtube.png';
+import pinterest from '../Images/pinterest.png';
 import twitter from '../Images/twitter.png';
 import whatsapp from '../Images/whatsapp.png';
 import alibaba from '../Images/alibaba_logo.png';
@@ -26,6 +27,7 @@ const Footer = () => {
                         <img src={twitter} className='w-12' />
                         <img src={alibaba} className='w-12' />
                         <img src={youtube} className='w-12' />
+                        <img src={pinterest} className='w-12' />
                         <img src={instagram} className='w-12' />
                     </div>
                 </div>
