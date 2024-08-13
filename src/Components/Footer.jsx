@@ -24,11 +24,11 @@ const Footer = () => {
                         <a href="https://wa.me/+8801871733305?text=Hello how can I help you?" target="_blank">
                             <img src={whatsapp} className='w-12' />
                         </a>
-                        <img src={twitter} className='w-12' />
-                        <img src={alibaba} className='w-12' />
-                        <img src={youtube} className='w-12' />
-                        <img src={pinterest} className='w-12' />
-                        <img src={instagram} className='w-12' />
+                        <a href="https://x.com/style_hair78"><img src={twitter} className='w-12' /></a>
+                        <a href=""><img src={alibaba} className='w-12' /></a>
+                        <a href=""><img src={youtube} className='w-12' /></a>
+                        <a href="https://www.pinterest.com/pinac0235/"><img src={pinterest} className='w-12' /></a>
+                        <a href="https://www.instagram.com/stylisthair54/?next=%2F"><img src={instagram} className='w-12' /></a>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
@@ -64,7 +64,7 @@ const Footer = () => {
 
             <div className='px-10 md:px-20 lg:px-24 py-4 border-t-2 border-[#00000032] flex items-center justify-center gap-4 w-full'>
                 <img src={logo} alt="Logo" className='w-12 rounded-full' />
-                <h1 className='text-lg font-semibold text-[#2A0134]'>@ 2024 Style Hair</h1>
+                <h1 className='text-lg font-semibold text-[#2A0134]'>@ 2024 Stylist Hair</h1>
             </div>
         </div>
     );

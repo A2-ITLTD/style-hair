@@ -4,6 +4,8 @@ import bg3 from '../Images/bg3.jpg';
 import bg4 from '../Images/b4.jpg';
 import bg6 from '../Images/b6.jpg';
 import bg7 from '../Images/b7.jpg';
+import img1 from '../Images/img1.png';
+import img2 from '../Images/img2.png';
 import orangebg from '../Images/orangebg.jpg';
 import '../../src/index.css';
 import { Link } from 'react-router-dom';
@@ -111,7 +113,7 @@ const Banner = () => {
           <section className="relative w-full h-[700px]">
             <img src={hairbg} className='w-full h-full object-cover object-left md:object-center' />
             <div className='absolute right-28 bottom-20 md:right-28 md:bottom-36 text-white flex flex-col gap-10'>
-                <h1 className='text-6xl md:text-8xl font-bold'>Style Hair</h1>
+                <h1 className='text-6xl md:text-8xl font-bold'>Stylist Hair</h1>
                 <button className='border-2 border-white py-4 w-full font-semibold text-2xl hover:bg-white hover:text-black'>Shop Now</button>
             </div>
           </section>
@@ -979,6 +981,27 @@ const Banner = () => {
                        </div>
                 </Carousel>
                 </div>
+          </section>
+          {/* making */}
+          <section className='mt-24 px-6 md:px-14 lg:px-28'>
+            <div className='flex flex-col md:flex-row justify-between gap-24 md:gap-3 items-center h-[500px]'>
+                <div className='relative w-full md:w-1/2'>
+                    <img src={img1} className='w-full h-full object-cover object-center' />
+                    <div className='absolute w-11/12 md:w-3/4 left-5 md:left-20 -bottom-32 bg-[#2A0134] text-white flex flex-col gap-3 p-7 justify-center text-center items-center'>
+                        <h1 className='text-xl font-normal'>Manufacturing of Wigs:</h1>
+                        <p className='text-wrap font-light italic'>Large-scale production techniques are used to create various types of wigs, ensuring consistency in quality and design, often incorporating advanced technologies like machine stitching and heat-resistant materials.</p>
+                        <Link to="/aboutus" className='text-base font-light flex gap-1 items-center text-orange-400 hover:text-orange-700 '>Learn More <IoMdArrowDropright className='text-2xl' /></Link>
+                    </div>
+                </div>
+                <div className='relative w-full md:w-1/2'>
+                    <img src={img2} className='w-full h-full object-cover object-center' />
+                    <div className='absolute w-11/12 md:w-3/4 left-5 md:left-20 -bottom-32 bg-[#2A0134] text-white flex flex-col gap-3 p-7 justify-center text-center items-center'>
+                        <h1 className='text-xl font-normal'>Making of Wigs</h1>
+                        <p className='text-wrap font-light italic'>The process of making wigs involves intricate craftsmanship where natural or synthetic hair strands are carefully sewn or glued onto a cap base, creating a realistic hairpiece that mimics natural hair growth.</p>
+                        <Link to="/aboutus" className='text-base font-light flex gap-1 items-center text-orange-400 hover:text-orange-700 '>Learn More<IoMdArrowDropright className='text-2xl' /></Link>
+                    </div>
+                </div>
+            </div>
           </section>
         </div>
     );
