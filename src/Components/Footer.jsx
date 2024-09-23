@@ -26,7 +26,7 @@ const Footer = () => {
                         </a>
                         <a href="https://x.com/style_hair78"><img src={twitter} className='w-12' /></a>
                         <a href=""><img src={alibaba} className='w-12' /></a>
-                        <a href=""><img src={youtube} className='w-12' /></a>
+                        <a href="https://studio.youtube.com/channel/UC9VYTsWm-SdqdmCSXRIz1HQ"><img src={youtube} className='w-12' /></a>
                         <a href="https://www.pinterest.com/pinac0235/"><img src={pinterest} className='w-12' /></a>
                         <a href="https://www.instagram.com/stylisthair54/?next=%2F"><img src={instagram} className='w-12' /></a>
                     </div>
